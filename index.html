@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       src="https://kit.fontawesome.com/a246d93935.js"
@@ -12,27 +13,96 @@
     <title>Libreria</title>
   </head>
   <body>
-    <div class="container mx-auto px-40">
-      <h1 class="text-6xl font-mono text-cyan-700 text-center font-bold my-16">
-        BIENVENIDOS A LA LIBRERIA
-      </h1>
+    <nav class="bg-white border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between h-16">
+          <div class="flex">
+            <div class="flex-shrink-0 flex items-center">
+              <img
+                class="h-12 w-auto"
+                src="img/logo.png"
+                alt="Libreria - logo"
+              />
+            </div>
+            <div class="sm:-my-px sm:ml-4 lg:flex">
+              <div
+                class="ml-6 inline-flex items-center px-1 pt-1 text-base font-medium leading-5 text-gray-900"
+              >
+                Inicio
+              </div>
+            </div>
+          </div>
 
-      <form id="formulario" class="flex">
+          <div class="sm:ml-4 lg:flex sm:items-center">
+            <div class="mx-10 flex w-full rounded-md shadow-sm sm:w-auto">
+              <ul>
+                <li class="submenu">
+                  <button type="button" class="text-gray-700">
+                    <i class="fa-solid fa-cart-shopping fa-2x"></i>
+                  </button>
+                  <div id="carrito">
+                    <table id="lista-carrito" class="u-full-width">
+                      <thead>
+                        <tr>
+                          <th>Imagen</th>
+                          <th>Nombre</th>
+                          <th>Precio</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody id="listarCarrito"></tbody>
+                    </table>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="flex w-full rounded-md shadow-sm sm:w-auto">
+              <button
+                type="button"
+                class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-cyan-700 text-base leading-6 font-medium text-white shadow-sm hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:shadow-outline-primary transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+              >
+                Ingresar
+              </button>
+            </div>
+            <div
+              class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:ml-2 sm:w-auto"
+            >
+              <button
+                type="button"
+                class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+              >
+                Crear Cuenta
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <br />
+    <div class="max-w-5xl mx-auto py-4 px-4 sm:px-6 lg:px-10 rounded-b-lg">
+      <form
+        id="formulario"
+        class="sm:flex items-center rounded-lg border-2 border-cyan-700 p-2"
+      >
         <input
           type="text"
-          id="website-admin"
-          class="rounded-none rounded-l-lg bg-gray-50 border border-cyan-700 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Nombre de la obra"
+          class="flex-1 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-3 focus:outline-none"
+          placeholder="Nombre del libro"
         />
         <button
+          class="rounded-full flex items-center justify-center bg-cyan-700 border-cyan-700 text-sm border-4 text-white py-2 px-2 mt-2 sm:mt-0"
           type="submit"
-          class="inline-flex items-center px-3 text-sm text-gray-900 bg-cyan-700 border border-l-0 border-cyan-700 rounded-r-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
         >
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
-      <div id="libros" class="grid grid-cols-4 gap-10 my-16"></div>
     </div>
-    <script src="./main.js"></script>
+
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div id="libros" class="grid grid-cols-4 gap-10 my-6"></div>
+    </div>
+
+    <script src="./index.js"></script>
   </body>
 </html>
