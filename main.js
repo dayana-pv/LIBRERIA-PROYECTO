@@ -54,10 +54,10 @@ function mostrarLibros(libros) {
     <div class="max-w-sm rounded overflow-hidden shadow-lg ">
         <img src=${item.imagen} >
         <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2 librosEstilos" >${item.nombre}</div>
+          <h4 class="font-bold text-xl mb-2 librosEstilos" >${item.nombre}</h4>
           <p class="text-gray-700 text-base">${item.autor}</p>
           <b>$${item.precio}</b>
-          <button id="agregarLibro" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 mt-2 bg-cyan-700 text-base leading-6 font-medium text-white " >Agregar al carrito</button>
+          <button class="botonCarrito inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 mt-2 bg-cyan-700 text-base leading-6 font-medium text-white " >Agregar al carrito</button>
         </div>
     </div>
     `;
