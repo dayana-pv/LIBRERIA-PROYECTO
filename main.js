@@ -8,7 +8,7 @@ class Libros {
     this.precio = precio;
   }
 }
-
+/*
 let libro1 = new Libros(
   1,
   "https://m.media-amazon.com/images/I/51f06+ruiBL.jpg",
@@ -41,7 +41,7 @@ let libro4 = new Libros(
 let libros = [libro1, libro2, libro3, libro4];
 
 localStorage.setItem("libros", JSON.stringify(libros));
-
+*/
 let librosStorage = JSON.parse(localStorage.getItem("libros"));
 
 function mostrarLibros(libros) {
@@ -79,8 +79,18 @@ function buscarLibro() {
     if (libroObtenido.length > 0) {
       mostrarLibros(libroObtenido);
     } else {
-      let container = document.getElementById("libros");
-      container.innerHTML = ``;
+      Swal.fire({
+        title: "No se ha encontrado ningun resultado",
+        width: 610,
+        padding: "3em",
+        color: "#374151",
+        background: "rgb(244 245 247)",
+        confirmButtonColor: "#0E7490",
+        backdrop: `
+          rgba(22, 78, 99,0.1)
+
+        `,
+      });
     }
   });
 }
