@@ -8,7 +8,7 @@ class Libros {
     this.precio = precio;
   }
 }
-/*
+
 let libro1 = new Libros(
   1,
   "https://m.media-amazon.com/images/I/51f06+ruiBL.jpg",
@@ -41,7 +41,7 @@ let libro4 = new Libros(
 let libros = [libro1, libro2, libro3, libro4];
 
 localStorage.setItem("libros", JSON.stringify(libros));
-*/
+
 let librosStorage = JSON.parse(localStorage.getItem("libros"));
 
 function mostrarLibros(libros) {
