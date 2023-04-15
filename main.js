@@ -1,49 +1,3 @@
-//Clase donde estaran los libros
-class Libros {
-  constructor(id, imagen, nombre, autor, precio) {
-    this.id = id;
-    this.imagen = imagen;
-    this.nombre = nombre;
-    this.autor = autor;
-    this.precio = precio;
-  }
-}
-
-let libro1 = new Libros(
-  1,
-  "https://m.media-amazon.com/images/I/51f06+ruiBL.jpg",
-  "Cuento de hadas",
-  "Stephen King ",
-  58
-);
-let libro2 = new Libros(
-  2,
-  "https://m.media-amazon.com/images/I/51U2m0naGNL.jpg",
-  "La biblioteca de los muertos",
-  "Glenn Cooper",
-  45
-);
-let libro3 = new Libros(
-  3,
-  "https://m.media-amazon.com/images/I/51ZgzA2+miL.jpg",
-  "La ciudad y los perros",
-  "Mario Vargas Llosa",
-  52
-);
-let libro4 = new Libros(
-  4,
-  "https://m.media-amazon.com/images/I/51x8R0epKTL.jpg",
-  "La casa de los espiritus",
-  "Isabel Allende",
-  39
-);
-
-let libros = [libro1, libro2, libro3, libro4];
-
-localStorage.setItem("libros", JSON.stringify(libros));
-
-let librosStorage = JSON.parse(localStorage.getItem("libros"));
-
 function mostrarLibros(libros) {
   let container = document.getElementById("libros");
   container.innerHTML = ``;
@@ -65,35 +19,49 @@ function mostrarLibros(libros) {
   });
 }
 
+function registrarLibros() {
+  fetch("./data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((item) => {
+        mostrarLibros(data);
+      });
+    });
+}
+
 function buscarLibro() {
   let formulario = document.getElementById("formulario");
 
   formulario.addEventListener("submit", (e) => {
     e.preventDefault();
-    let inputs = e.target.children;
 
-    let libroObtenido = librosStorage.filter(
-      (libro) => libro.nombre.toLowerCase() === inputs[0].value.toLowerCase()
-    );
+    fetch("./data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        let inputs = e.target.children;
+        let libroObtenido = data.filter(
+          (libro) =>
+            libro.nombre.toLowerCase() === inputs[0].value.toLowerCase()
+        );
 
-    if (libroObtenido.length > 0) {
-      mostrarLibros(libroObtenido);
-    } else {
-      Swal.fire({
-        title: "No se ha encontrado ningun resultado",
-        width: 610,
-        padding: "3em",
-        color: "#374151",
-        background: "rgb(244 245 247)",
-        confirmButtonColor: "#0E7490",
-        backdrop: `
+        if (libroObtenido.length > 0) {
+          mostrarLibros(libroObtenido);
+        } else {
+          Swal.fire({
+            title: "No se ha encontrado ningun resultado",
+            width: 610,
+            padding: "3em",
+            color: "#374151",
+            background: "rgb(244 245 247)",
+            confirmButtonColor: "#0E7490",
+            backdrop: `
           rgba(22, 78, 99,0.1)
-
         `,
+          });
+        }
       });
-    }
   });
 }
 
-mostrarLibros(librosStorage);
+registrarLibros();
 buscarLibro();

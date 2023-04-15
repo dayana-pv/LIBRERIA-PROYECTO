@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "imagen": "https://m.media-amazon.com/images/I/51f06+ruiBL.jpg",
+    "nombre": "Cuento de hadas",
+    "autor": "Stephen King ",
+    "precio": 58
+  },
+  {
+    "id": 2,
+    "imagen": "https://m.media-amazon.com/images/I/51U2m0naGNL.jpg",
+    "nombre": "La biblioteca de los muertos",
+    "autor": "Glenn Cooper",
+    "precio": 45
+  },
+  {
+    "id": 3,
+    "imagen": "https://m.media-amazon.com/images/I/51ZgzA2+miL.jpg",
+    "nombre": "La ciudad y los perros",
+    "autor": "Mario Vargas Llosa",
+    "precio": 52
+  },
+  {
+    "id": 4,
+    "imagen": "https://m.media-amazon.com/images/I/51x8R0epKTL.jpg",
+    "nombre": "La casa de los espiritus",
+    "autor": "Isabel Allende",
+    "precio": 49
+  }
+]
