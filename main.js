@@ -1,3 +1,4 @@
+// Función que muestra los libros que hay
 function mostrarLibros(libros) {
   let container = document.getElementById("libros");
   container.innerHTML = ``;
@@ -10,8 +11,8 @@ function mostrarLibros(libros) {
         <div class="px-6 py-4">
           <h4 class="font-bold text-xl mb-2 librosEstilos" >${item.nombre}</h4>
           <p class="text-gray-700 text-base">${item.autor}</p>
-          <b>$${item.precio}</b>
-          <button class="botonCarrito inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 mt-2 bg-cyan-700 text-base leading-6 font-medium text-white " >Agregar al carrito</button>
+          <b>$<span>${item.precio}<span></b>
+          <button class="botonCarrito inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 mt-2 bg-cyan-700 text-base leading-6 font-medium text-white" data-id=${item.id}>Agregar al carrito</button>
         </div>
     </div>
     `;
@@ -19,6 +20,7 @@ function mostrarLibros(libros) {
   });
 }
 
+// Función que registra los libros
 function registrarLibros() {
   fetch("./data.json")
     .then((response) => response.json())
@@ -29,6 +31,7 @@ function registrarLibros() {
     });
 }
 
+// Función que busca los libros
 function buscarLibro() {
   let formulario = document.getElementById("formulario");
 
